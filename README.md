@@ -1,3 +1,18 @@
+# Memo
+
+```/etc/systemd/system/mybot.service
+[Unit]
+Description = hubot for smart home
+
+[Service]
+ExecStart=/home/pi/mybot/bin/mybot.sh
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+```
+
 # mybot
 
 mybot is a chat bot built on the [Hubot][hubot] framework. It was
