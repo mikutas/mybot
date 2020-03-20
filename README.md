@@ -1,5 +1,7 @@
 # Memo
 
+/etc/systemd/system/mybot.service
+
 ```/etc/systemd/system/mybot.service
 [Unit]
 Description = hubot for smart home
@@ -11,6 +13,19 @@ Type=simple
 
 [Install]
 WantedBy=multi-user.target
+```
+
+bin/hubot
+
+```bin/hubot
+#!/bin/sh
+
+set -e
+
+npm install
+export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+export HUBOT_SLACK_TOKEN=[your token]
+exec node_modules/.bin/hubot --name "mybot" "$@"
 ```
 
 # mybot
